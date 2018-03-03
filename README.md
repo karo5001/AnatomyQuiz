@@ -6,6 +6,15 @@ When you're done, you can delete the content in this README and update the file 
 
 ---
 
+## Załózenia projektowe
+
+NIGDY nie commitujemy bezpośrednio do mastera
+
+1. Dla każdego taska robimy NOWEGO bruncha
+2. Nad każdą metodą wpisujemy "//" dla łatego zlokalizowania
+3. Nazwy metod muszą być informatywne
+
+
 ## Edit a file
 
 You’ll start by editing this README file to learn how to edit a file in Bitbucket.
