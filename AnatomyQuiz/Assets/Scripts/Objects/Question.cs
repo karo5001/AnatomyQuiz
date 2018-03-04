@@ -18,7 +18,7 @@ public class Question
         A,
         B,
         C,
-        D
+        D,
     }
 
     public enum MainSubject

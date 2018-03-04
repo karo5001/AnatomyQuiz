@@ -24,15 +24,18 @@ public class QuizViewController : MonoBehaviour
     private Question.PossibleAnswer answer;
     private Color BaseButtonColor;
     private Color NewColor;
-
+    private Color WrongAnswerColor;
     //
     private void Start()
     {
+        
         currentQuestion = Singleton.QuizManager.GetRandomQuestion();
         AssignStrings(currentQuestion.question, currentQuestion.answerA, currentQuestion.answerB, currentQuestion.answerC, currentQuestion.answerD);
         Singleton.EventManager.AddListener<AnswerClick.AnswerClickResult>(AnswerCheckedBehaviour);
         BaseButtonColor = answerA.color;
         NewColor = new Color(0, 255, 0);
+        WrongAnswerColor = new Color(255, 0, 0);
+        
     }
 
     //
@@ -84,17 +87,20 @@ public class QuizViewController : MonoBehaviour
 
     //
     private void ChangeColors(AnswerClick.AnswerClickResult evt)
+
     {
+        
         Question.PossibleAnswer correctAnswer = currentQuestion.correctAnswer;
 
         if(evt.answer == correctAnswer)
         {
             Blink(ButtonRelationToAnswer(evt.answer));
         }
-        else
+        else if (evt.answer !=correctAnswer)
         {
             Blink(ButtonRelationToAnswer(correctAnswer));
-            ButtonRelationToAnswer(evt.answer).color = new Color(255,0,0);
+            ButtonRelationToAnswer(evt.answer).color=WrongAnswerColor;
+            
         }
     }
 
@@ -110,6 +116,8 @@ public class QuizViewController : MonoBehaviour
             image.color = BaseButtonColor;
         }
     }
+
+   
 
     //
     private void ResetColor()
