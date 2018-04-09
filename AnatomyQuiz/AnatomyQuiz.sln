@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnatomyQuiz", "AnatomyQuiz.csproj", "{FA3A3DAE-7484-B517-14B5-09DEC140550A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnatomyQuiz.Editor", "AnatomyQuiz.Editor.csproj", "{8022C946-8D99-A6FB-3507-ADEC315B2AEE}"
