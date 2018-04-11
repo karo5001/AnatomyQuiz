@@ -7,11 +7,10 @@ public class QuizManager : BaseSingletonObject
 {
     //
     public Question[] questions;
-    public bool isCorrect;
-
-    //
     private Question currentQuestion;
     private int score;
+
+    //
     private List<Question> unAnsweredQuestions;
 
     // Use this for initialization
@@ -19,21 +18,13 @@ public class QuizManager : BaseSingletonObject
     {
         unAnsweredQuestions = questions.ToList();
         score = 0;
-        isCorrect = false;
     }
 
     public Question GetRandomQuestion()
     {
-        if (unAnsweredQuestions.Count != 0)
-        {
-            int randomIndex = Random.Range(0, unAnsweredQuestions.Count - 1);
-            currentQuestion = unAnsweredQuestions[randomIndex];
-            unAnsweredQuestions.RemoveAt(randomIndex);
-        }
-        else
-        {
-            unAnsweredQuestions = questions.ToList();
-        }
+        int randomIndex = Random.Range(0, unAnsweredQuestions.Count);
+        currentQuestion = unAnsweredQuestions[randomIndex];
+        unAnsweredQuestions.RemoveAt(randomIndex);
 
         return currentQuestion;
     }
@@ -56,15 +47,9 @@ public class QuizManager : BaseSingletonObject
     public void CheckAnswer(Question.PossibleAnswer answer)
     {
         if (answer == currentQuestion.correctAnswer)
-        {
             AddPointsToScore(50);
-            isCorrect = true;
-        }
         else
-        {
             RemovePointsFromScore(50);
-            isCorrect = false;
-        }
     }
 
 }
